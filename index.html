@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Deep Bible Study — The Truth Project</title>
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ctext y='.9em' font-size='90'%3E%F0%9F%93%9C%3C/text%3E%3C/svg%3E">
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+
+  <header class="site-header">
+    <div class="header-inner">
+      <div class="brand">
+        <span class="brand-mark">&#10022;</span>
+        <div>
+          <h1>Deep Bible Study</h1>
+          <p class="tagline">The Truth Project — evidence first, tradition labeled, no lies.</p>
+        </div>
+      </div>
+      <div class="search-wrap">
+        <input type="search" id="global-search" placeholder="Search everything… (e.g. 'Christmas', 'Sheol', 'Babylon')" autocomplete="off">
+      </div>
+    </div>
+    <nav class="main-nav" id="main-nav">
+      <button class="nav-btn active" data-view="home">Start Here</button>
+      <button class="nav-btn" data-view="biblical">Biblical History</button>
+      <button class="nav-btn" data-view="origins">Origins of Religions</button>
+      <button class="nav-btn" data-view="practices">Origins of Practices</button>
+      <button class="nav-btn" data-view="migrations">Migrations &amp; Diaspora</button>
+      <button class="nav-btn" data-view="world">World History &amp; Politics</button>
+      <button class="nav-btn" data-view="language">Languages &amp; True Definitions</button>
+      <button class="nav-btn" data-view="heritage">Roots &amp; Recovery</button>
+      <button class="nav-btn" data-view="analyzer">Truth Analyzer</button>
+    </nav>
+  </header>
+
+  <main id="main-content">
+
+    <!-- ============ HOME ============ -->
+    <section id="view-home" class="view active">
+      <div class="hero">
+        <h2>The whole truth, and nothing but the truth.</h2>
+        <p>
+          This is a research tool, not a preaching tool. Its one absolute rule:
+          <strong>never present a claim as more certain than the evidence allows.</strong>
+          Every entry here is tagged with an evidence tier so you always know the difference
+          between what is <em>proven</em>, what is <em>probable</em>, what is <em>genuinely disputed</em>,
+          and what is <em>tradition or myth</em> — no matter whose tradition it is.
+        </p>
+        <p>
+          That cuts in every direction. Popular church traditions get examined honestly —
+          and so do popular internet claims <em>against</em> religion, many of which are also false.
+          Truth is not a team sport.
+        </p>
+      </div>
+
+      <h3 class="section-title">How every claim is graded</h3>
+      <div class="tier-legend" id="tier-legend"></div>
+
+      <h3 class="section-title">How we know anything about the past</h3>
+      <div class="method-grid">
+        <div class="method-card">
+          <h4>1. Physical evidence</h4>
+          <p>Archaeology, inscriptions, coins, destruction layers, carbon dating. The strongest kind of evidence — it can't be rewritten later, though it still requires interpretation.</p>
+        </div>
+        <div class="method-card">
+          <h4>2. Contemporary written sources</h4>
+          <p>Documents written at or near the time of the event, especially by different sides. When Assyrian records, Babylonian chronicles, and the Bible independently describe the same event, confidence is very high.</p>
+        </div>
+        <div class="method-card">
+          <h4>3. Multiple independent attestation</h4>
+          <p>A claim found in several sources that did not copy each other is far stronger than one found in a single late source. A single source centuries after the event is weak evidence, even if it's repeated everywhere today.</p>
+        </div>
+        <div class="method-card">
+          <h4>4. Criterion of embarrassment</h4>
+          <p>Details that make the author's own side look bad are unlikely to be invented. The Bible recording Israel's constant idolatry, or a king's defeat, counts <em>for</em> the honesty of those passages.</p>
+        </div>
+        <div class="method-card">
+          <h4>5. Pattern reasoning — used honestly</h4>
+          <p>Where records are missing, historians reason from patterns (how empires behaved, how languages change, how customs spread). This can point to what is <em>most likely</em> — and this app always labels such conclusions as inference, never as proven fact.</p>
+        </div>
+        <div class="method-card">
+          <h4>6. Absence of evidence</h4>
+          <p>Absence of evidence is weak evidence of absence — but it is not <em>nothing</em>. If a large event should have left traces and none are found, that lowers confidence. We say so plainly instead of pretending.</p>
+        </div>
+      </div>
+
+      <h3 class="section-title">What's inside</h3>
+      <div class="method-grid">
+        <div class="method-card"><h4>Biblical History</h4><p>A timeline of ancient Israel with what archaeology confirms, what it disputes, and what remains unknown.</p></div>
+        <div class="method-card"><h4>Origins of Religions</h4><p>Where today's religions and denominations actually came from, with dates and documents.</p></div>
+        <div class="method-card"><h4>Origins of Practices</h4><p>Christmas, Easter, Sunday, Halloween, birthdays, wedding rings — where each really came from, myths corrected in both directions.</p></div>
+        <div class="method-card"><h4>Migrations &amp; Diaspora</h4><p>Where the Israelites started and where they ended up — every documented deportation and diaspora, and every descent claim graded by evidence.</p></div>
+        <div class="method-card"><h4>World History &amp; Politics</h4><p>Empires, and the political patterns that repeat from Babylon and Rome to today: debased money, propaganda, bread and circuses.</p></div>
+        <div class="method-card"><h4>Roots &amp; Recovery</h4><p>Haitian heritage: the documented African kingdoms the ancestors came from, what was erased and how, what survived, and how to recover your own family line.</p></div>
+        <div class="method-card"><h4>Languages</h4><p>Hebrew, Aramaic, Greek — how the languages changed, and the true original definitions behind English words like hell, church, virgin, Lucifer.</p></div>
+        <div class="method-card"><h4>Truth Analyzer</h4><p>A library of popular claims examined against evidence, plus an optional AI assistant bound by strict truth-first rules.</p></div>
+      </div>
+    </section>
+
+    <!-- ============ DYNAMIC LIST VIEWS ============ -->
+    <section id="view-biblical" class="view">
+      <div class="view-head">
+        <h2>Biblical History &amp; the Ancient Israelites</h2>
+        <p>A chronological record. Each entry states what the evidence is — inscriptions, archaeology, outside records — and grades the confidence honestly, including where the Bible is confirmed, where it is disputed, and where we simply don't know.</p>
+      </div>
+      <div class="filter-bar" data-section="biblical"></div>
+      <div class="card-list" id="list-biblical"></div>
+    </section>
+
+    <section id="view-origins" class="view">
+      <div class="view-head">
+        <h2>Origins of Today's Religions</h2>
+        <p>Where the religions and denominations you see today actually came from — with dates, founding documents, and the historical forces behind each split.</p>
+      </div>
+      <div class="filter-bar" data-section="origins"></div>
+      <div class="card-list" id="list-origins"></div>
+    </section>
+
+    <section id="view-practices" class="view">
+      <div class="view-head">
+        <h2>Origins of Practices &amp; Customs</h2>
+        <p>The things people do today — holidays, customs, symbols — traced to their real documented origins. Where a popular "pagan origin" story is itself a myth, we say so. Where a practice genuinely has no biblical basis, we say that too. Whether any practice <em>should</em> be done is your judgment to make — this page gives you the true history to make it with.</p>
+      </div>
+      <div class="filter-bar" data-section="practices"></div>
+      <div class="card-list" id="list-practices"></div>
+    </section>
+
+    <section id="view-migrations" class="view">
+      <div class="view-head">
+        <h2>Migrations of the Israelites — Where They Started, Where They Ended Up</h2>
+        <p>Every documented movement — deportations, flights, and diasporas — followed by every major claim of Israelite descent around the world, each graded strictly by the evidence: the proven, the partially supported, the traditional, and the mythical.</p>
+      </div>
+      <div class="filter-bar" data-section="migrations"></div>
+      <div class="card-list" id="list-migrations"></div>
+    </section>
+
+    <section id="view-world" class="view">
+      <div class="view-head">
+        <h2>World History &amp; Politics — Then and Now</h2>
+        <p>The empires that shaped the ancient world (and Israel's story), and the political patterns that keep repeating: money debasement, propaganda, the drift from republic to strongman, bread and circuses.</p>
+      </div>
+      <div class="filter-bar" data-section="world"></div>
+      <div class="card-list" id="list-world"></div>
+    </section>
+
+    <section id="view-language" class="view">
+      <div class="view-head">
+        <h2>Languages &amp; True Definitions</h2>
+        <p>The Bible was written in Hebrew, Aramaic, and Greek — not English. Many English words carry meanings the original words never had, and English itself has drifted since 1611. This section gives the documented original meanings.</p>
+      </div>
+      <div class="filter-bar" data-section="language"></div>
+      <div class="card-list" id="list-language"></div>
+    </section>
+
+    <section id="view-heritage" class="view">
+      <div class="view-head">
+        <h2>Roots &amp; Recovery — Haitian Heritage</h2>
+        <p>The documented history of the peoples who became the Haitian people: the Taíno of Ayiti, the named African kingdoms the ancestors were taken from, the machinery that erased names and languages, what survived anyway (Kreyòl carries West African grammar to this day), the Revolution, the ransom — and the practical guide to recovering your own family line while the elders who remember are still with us.</p>
+      </div>
+      <div class="filter-bar" data-section="heritage"></div>
+      <div class="card-list" id="list-heritage"></div>
+    </section>
+
+    <!-- ============ ANALYZER ============ -->
+    <section id="view-analyzer" class="view">
+      <div class="view-head">
+        <h2>Truth Analyzer</h2>
+        <p>Popular claims examined against the evidence — for and against, then a verdict. The verdict follows the evidence, not any side. Below the library, you can connect an AI assistant bound by strict truth-first rules to analyze new questions.</p>
+      </div>
+
+      <div class="filter-bar" data-section="claims"></div>
+      <div class="card-list" id="list-claims"></div>
+
+      <div class="ai-panel">
+        <h3>Ask the Analyzer (AI)</h3>
+        <p class="ai-note">
+          Optional: connect your own Anthropic API key (get one at
+          <a href="https://platform.claude.com" target="_blank" rel="noopener">platform.claude.com</a>).
+          The key is stored <strong>only in your own browser</strong> (localStorage) and sent only to Anthropic.
+          The AI is instructed to grade its own answers with the same evidence tiers used across this site,
+          to say "unknown" when the evidence runs out, and never to present tradition or speculation as fact.
+        </p>
+        <div class="ai-key-row">
+          <input type="password" id="api-key-input" placeholder="Anthropic API key (sk-ant-…)" autocomplete="off">
+          <button id="save-key-btn" class="btn">Save key</button>
+          <button id="clear-key-btn" class="btn btn-ghost">Clear</button>
+          <span id="key-status" class="key-status"></span>
+        </div>
+        <textarea id="ai-question" rows="3" placeholder="Ask a history / origins / language question, e.g. 'Where did the practice of praying to saints come from, and when is it first documented?'"></textarea>
+        <div class="ai-actions">
+          <button id="ask-btn" class="btn btn-primary">Analyze</button>
+          <span id="ai-status" class="ai-status"></span>
+        </div>
+        <div id="ai-answer" class="ai-answer" hidden></div>
+      </div>
+    </section>
+
+    <!-- ============ SEARCH RESULTS ============ -->
+    <section id="view-search" class="view">
+      <div class="view-head">
+        <h2>Search results</h2>
+        <p id="search-summary"></p>
+      </div>
+      <div class="card-list" id="list-search"></div>
+    </section>
+
+  </main>
+
+  <footer class="site-footer">
+    <p>
+      Deep Bible Study — The Truth Project. Every claim is tagged with its evidence tier.
+      If you find an entry that overstates its evidence, that is a bug — the standard is the truth,
+      the whole truth, and nothing but the truth.
+    </p>
+  </footer>
+
+  <script src="data/tiers.js"></script>
+  <script src="data/biblical.js"></script>
+  <script src="data/origins.js"></script>
+  <script src="data/practices.js"></script>
+  <script src="data/migrations.js"></script>
+  <script src="data/heritage.js"></script>
+  <script src="data/world.js"></script>
+  <script src="data/language.js"></script>
+  <script src="data/claims.js"></script>
+  <script src="js/app.js"></script>
+  <script src="js/analyzer.js"></script>
+</body>
+</html>
