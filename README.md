@@ -20,7 +20,11 @@ religion).
 | **World History & Politics** | Empires and the repeating political patterns: debased money, propaganda, bread and circuses, republic-to-strongman |
 | **Languages & True Definitions** | Hebrew, Aramaic, Greek, Kreyòl; the original meanings behind "hell", "church", "Lucifer", "virgin", and KJV words that drifted |
 | **Roots & Recovery** | Haitian heritage: the documented African kingdoms, the machinery of erasure, what survived, and how to recover your family line |
+| **Doctrine Investigator** | Sabbath, hell, the soul, Trinity, tithing, baptism, resurrection, dietary laws, church hierarchy — each by one structure: claim → earliest evidence → development → established / debated / unprovable |
+| **Lost & Excluded Books** | 1 Enoch, Jubilees, Maccabees, Sirach, Wisdom, Tobit, Judith, the Didache, Hermas, Barnabas, Gospel of Thomas, 2 Esdras — dates, languages, manuscripts, canonical status per tradition, and honest reasons for exclusion |
+| **Manuscripts & Translations** | Masoretic, Dead Sea Scrolls, Septuagint, Samaritan Pentateuch, NT papyri & codices, Vulgate, Peshitta, Ethiopian Ge'ez — plus the documented causes of textual variants |
 | **Academy** | Built-in Ancient Hebrew course (8 bite-size lessons ending at reading Genesis 1:1), plus an AI Course Builder tutor that assesses your goal and creates customized bite-size courses on any topic here — with voice in/out |
+| **📓 Research Notebook** | Personal notes, open questions, saved AI answers — editable in place, exportable as Markdown |
 | **Truth Analyzer** | A library of popular claims judged against evidence for/against, plus a conversational AI assistant bound by truth-first rules — speak to it (🎤) and hear it answer (🔊) |
 
 ## Running it
@@ -62,12 +66,30 @@ corroboration (independent witnesses converging = higher confidence). Read it
 — the recordings are the part no future technology can recover once the
 witnesses are gone.
 
+## The AI's constitution
+
+Both AI features (Truth Analyzer and Course Builder) run under a strict shared
+rulebook: evidence tiers on every claim, source *types* named (primary text /
+manuscript / archaeology / later tradition / interpretation), a bias-and-
+assumptions note on substantial answers, interpretive lenses labeled with
+their assumptions (Rabbinic, Karaite, Catholic, Orthodox, Ethiopian,
+Protestant, Messianic, Hebrew Roots, Islamic, secular academic…), identity and
+ancestry rules (no ancestry from skin color, sound-alike names, geography, or
+single DNA markers; all sides' evidence shown), no invented Hebrew
+definitions or citations, no secret-knowledge claims, critique of ideas but
+never of people, and the required sentence when evidence runs out: *"The
+available evidence does not allow a reliable conclusion at this time."*
+
 ## Roadmap ideas
 
 - "How we were meant to live" section: documented daily life, law, calendar,
   food, and economy of ancient Israel — what the texts actually prescribe vs.
   later custom
-- Interactive migration map
+- Full Bible reader with side-by-side translation comparison (needs bundled
+  public-domain texts — a sizable data phase)
+- Interactive migration map and ancient-world maps
+- Community discussion with moderation, user accounts, admin dashboard
+  (require a hosted backend — a later platform phase)
 - Kreyòl translation of the interface and entries
 - Build the Witness Project MVP
 

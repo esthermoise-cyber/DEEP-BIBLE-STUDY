@@ -32,8 +32,12 @@
       <button class="nav-btn" data-view="world">World History &amp; Politics</button>
       <button class="nav-btn" data-view="language">Languages &amp; True Definitions</button>
       <button class="nav-btn" data-view="heritage">Roots &amp; Recovery</button>
+      <button class="nav-btn" data-view="doctrines">Doctrine Investigator</button>
+      <button class="nav-btn" data-view="books">Lost &amp; Excluded Books</button>
+      <button class="nav-btn" data-view="manuscripts">Manuscripts</button>
       <button class="nav-btn" data-view="academy">Academy</button>
       <button class="nav-btn" data-view="analyzer">Truth Analyzer</button>
+      <button class="nav-btn" data-view="notebook">📓 Notebook</button>
       <button class="nav-btn" data-view="saved">⭐ Saved</button>
       <button class="nav-btn" data-view="support">❤ Support</button>
     </nav>
@@ -103,7 +107,11 @@
         <div class="method-card"><h4>Roots &amp; Recovery</h4><p>Haitian heritage: the documented African kingdoms the ancestors came from, what was erased and how, what survived, and how to recover your own family line.</p></div>
         <div class="method-card"><h4>Languages</h4><p>Hebrew, Aramaic, Greek — how the languages changed, and the true original definitions behind English words like hell, church, virgin, Lucifer.</p></div>
         <div class="method-card"><h4>Truth Analyzer</h4><p>A library of popular claims examined against evidence, plus an optional AI assistant bound by strict truth-first rules — speak to it and hear it answer.</p></div>
+        <div class="method-card"><h4>Doctrine Investigator</h4><p>Sabbath, hell, the soul, Trinity, tithing, baptism — each traced from earliest evidence through its development, with established / debated / unprovable kept separate.</p></div>
+        <div class="method-card"><h4>Lost &amp; Excluded Books</h4><p>1 Enoch, Jubilees, Maccabees, the Didache, Gospel of Thomas — what each is, who accepted it, and why it's in some Bibles and not others.</p></div>
+        <div class="method-card"><h4>Manuscripts &amp; Translations</h4><p>Masoretic, Dead Sea Scrolls, Septuagint, Samaritan, the great codices — the physical witnesses behind every Bible, and why they differ.</p></div>
         <div class="method-card"><h4>Academy</h4><p>A built-in Ancient Hebrew course (read Genesis 1:1 in Hebrew by lesson 8), plus an AI tutor that assesses your goal and builds a customized bite-size course on any topic here.</p></div>
+        <div class="method-card"><h4>Research Notebook</h4><p>Write notes, track open questions, save AI answers, and export your whole notebook as a file.</p></div>
       </div>
     </section>
 
@@ -178,6 +186,33 @@
       </div>
       <div class="filter-bar" data-section="heritage"></div>
       <div class="card-list" id="list-heritage"></div>
+    </section>
+
+    <section id="view-doctrines" class="view">
+      <div class="view-head">
+        <h2>Doctrine Investigator</h2>
+        <p>Major teachings examined by one fixed structure: the claim → key texts → earliest evidence → how it developed → what's established, what's debated, and what cannot be proven. Ideas get critiqued; people never do. The verdict on what to <em>believe</em> stays where it belongs — with you. For deeper digging, take any doctrine to the Truth Analyzer and examine it under different interpretive lenses.</p>
+      </div>
+      <div class="filter-bar" data-section="doctrines"></div>
+      <div class="card-list" id="list-doctrines"></div>
+    </section>
+
+    <section id="view-books" class="view">
+      <div class="view-head">
+        <h2>Lost, Excluded &amp; Disputed Books</h2>
+        <p>The writings called apocrypha, deuterocanonical, pseudepigrapha, "lost books" — what each one actually is: its date, language, surviving manuscripts, canonical status in every tradition, and the documented reasons it was accepted, disputed, or excluded. Rule of this library: no "removed to hide the truth" claims without evidence of suppression — and where the evidence shows something else (like the KJV of 1611 including the Apocrypha), you'll read it here.</p>
+      </div>
+      <div class="filter-bar" data-section="books"></div>
+      <div class="card-list" id="list-books"></div>
+    </section>
+
+    <section id="view-manuscripts" class="view">
+      <div class="view-head">
+        <h2>Manuscripts &amp; Translations</h2>
+        <p>The physical witnesses behind every Bible: the Masoretic Text, Dead Sea Scrolls, Septuagint, Samaritan Pentateuch, the New Testament papyri and great codices, the Vulgate, the Syriac Peshitta, and the Ethiopian tradition — what each is, where it lives today, what it shows, and why manuscripts differ (the documented causes, from copying slips to the rare deliberate edit).</p>
+      </div>
+      <div class="filter-bar" data-section="manuscripts"></div>
+      <div class="card-list" id="list-manuscripts"></div>
     </section>
 
     <!-- ============ ACADEMY ============ -->
@@ -296,11 +331,29 @@
         <div class="ai-actions">
           <button id="mic-btn" class="btn">🎤 Speak</button>
           <button id="ask-btn" class="btn btn-primary">Analyze</button>
+          <select id="lens-select" title="Interpretive lens: answer through a labeled tradition's viewpoint, with its assumptions stated"></select>
           <button id="new-conv-btn" class="btn btn-ghost">New conversation</button>
           <label class="auto-read-label"><input type="checkbox" id="auto-read-toggle"> 🔊 Read answers aloud automatically</label>
           <span id="ai-status" class="ai-status"></span>
         </div>
       </div>
+    </section>
+
+    <!-- ============ NOTEBOOK ============ -->
+    <section id="view-notebook" class="view">
+      <div class="view-head">
+        <h2>📓 Research Notebook</h2>
+        <p>Your personal research space, kept in this browser: write notes, track open questions, and save AI answers here (the 📓 button on any answer). Edit any note in place; export everything as a Markdown file for printing or backup.</p>
+      </div>
+      <div class="ai-panel" style="margin-top:0">
+        <input type="text" id="note-new-title" placeholder="Note title — e.g. 'Open question: Mark 7:19 translation'" style="width:100%;padding:0.55rem 0.8rem;background:var(--bg-soft);border:1px solid var(--card-edge);border-radius:6px;color:var(--ink);margin-bottom:0.6rem">
+        <textarea id="note-new-text" rows="3" placeholder="Write your note, finding, or unresolved question…"></textarea>
+        <div class="ai-actions">
+          <button id="note-add-btn" class="btn btn-primary">Add note</button>
+          <button id="note-export-btn" class="btn btn-ghost">⬇ Export all as Markdown</button>
+        </div>
+      </div>
+      <div class="card-list" id="notebook-list" style="margin-top:1.2rem"></div>
     </section>
 
     <!-- ============ SAVED ============ -->
@@ -357,7 +410,11 @@
   <script src="data/language.js"></script>
   <script src="data/claims.js"></script>
   <script src="data/hebrew.js"></script>
+  <script src="data/doctrines.js"></script>
+  <script src="data/books.js"></script>
+  <script src="data/manuscripts.js"></script>
   <script src="js/app.js"></script>
+  <script src="js/notebook.js"></script>
   <script src="js/analyzer.js"></script>
   <script src="js/academy.js"></script>
 </body>

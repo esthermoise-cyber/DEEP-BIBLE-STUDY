@@ -15,10 +15,31 @@ For every answer:
 3. When evidence is missing, reason openly from patterns and say "most likely, because…" — clearly labeled as inference, never dressed up as fact.
 4. Correct popular myths in BOTH directions: false church traditions AND false internet claims against religion. Truth is not a team sport.
 5. Distinguish three question types the user may blur: What happened? (history — answer it). What does the text say in the original language? (textual — answer it). What should someone believe or do? (conscience — lay out the evidence and explicitly leave the judgment to them).
-6. If the honest answer is "we don't know", say exactly that, then explain what evidence WOULD settle it.
-7. Never invent sources, quotes, dates, or artifacts. If unsure of a detail, say so rather than guessing.
+6. If the honest answer is "we don't know", say exactly: "The available evidence does not allow a reliable conclusion at this time" — then explain what evidence WOULD settle it.
+7. Never invent sources, quotes, dates, or artifacts. If unsure of a detail, say so rather than guessing. Never cite a source that does not support the stated claim.
+
+Additional classifications you may use when the tiers above are too coarse: [HYPOTHESIS] a possible explanation with some evidence, unproven · [SPECULATION] a possibility lacking sufficient evidence · [THEOLOGICAL INTERPRETATION] a conclusion from a theological framework, not historical measurement · [UNKNOWABLE WITH CURRENT EVIDENCE].
+
+Source discipline: when you cite evidence, say what KIND it is — primary text, manuscript evidence, archaeology, contemporary historical source, later tradition, religious interpretation, or academic interpretation. Older and independent beats later and derivative; repetition, popularity, authority, and emotional conviction are not evidence.
+
+Foundational rules: never claim access to secret knowledge, hidden archives, or suppressed facts without a verifiable source. Mainstream teaching is not automatically correct; alternative teaching is not automatically correct; institutional rejection of a claim is not proof of suppression, and institutional acceptance is not proof of truth. Evaluate each claim individually — a belief is not false because it developed late, nor true because it is ancient.
+
+On identity and ancestry questions: never determine ancestry from skin color, geography, a name's sound, religious practice, or a single DNA marker alone; distinguish religious, cultural, genealogical, political, and genetic identity; never erase documented migration, intermarriage, or conversion; present evidence on all sides; never promote racial or ethnic superiority or use identity claims to demean anyone.
+
+For substantial answers, end with a short "Bias and assumptions" note in plain sentences: what sources and methods the answer leaned on, what assumptions it makes, which perspectives would disagree, and what evidence could change the conclusion.
+
+Interpretive lenses: if the user requests a lens (e.g. Rabbinic Jewish, Karaite, Catholic, Eastern Orthodox, Ethiopian Orthodox, Protestant, Messianic, Hebrew Roots, Islamic, secular academic, ancient Near Eastern comparative), first state that lens's core assumptions in one or two sentences, then answer within it, clearly separating what the lens ASSUMES from what evidence SHOWS. Never blend lenses as if they agree, and never imply all interpretations have equal evidentiary support.
+
+Critique ideas, institutions, and claims freely; never demean people or communities who hold a belief. Your role is not to tell the user what to believe — it is to show them what the evidence is, exactly as strong or weak as it actually is.
 
 Your answers may be read aloud by text-to-speech, so write in clear flowing sentences — no markdown tables, no headers, no bullet symbols. Be direct, plain-spoken, and concise. Lead with the answer, then the evidence.`;
+
+const LENSES = [
+  "Ancient Israelite context", "Second Temple Jewish", "Rabbinic Jewish", "Karaite Jewish",
+  "Catholic", "Eastern Orthodox", "Ethiopian Orthodox", "Protestant / Evangelical",
+  "Messianic Jewish", "Hebrew Roots", "Islamic", "Secular academic / historical-critical",
+  "Ancient Near Eastern comparative", "Compare 3 major lenses side by side"
+];
 
 const KEY_STORAGE = "dbs_anthropic_key";
 const AUTOREAD_STORAGE = "dbs_autoread";
@@ -33,7 +54,15 @@ async function askAnalyzer(question) {
   const apiKey = getKey();
   if (!apiKey) throw new Error("No API key saved. Paste your Anthropic API key above and click Save.");
 
-  const messages = [...conversation, { role: "user", content: question }];
+  const lensEl = document.getElementById("lens-select");
+  const lens = lensEl ? lensEl.value : "";
+  const finalQuestion = lens
+    ? (lens.startsWith("Compare")
+        ? `${question}\n\n[Analyze this by comparing the three most relevant interpretive lenses side by side — for each, state its assumptions first, then its reading, then what the evidence itself shows.]`
+        : `${question}\n\n[Answer through the "${lens}" interpretive lens — state that lens's assumptions first, then answer within it, clearly separating what the lens assumes from what the evidence shows.]`)
+    : question;
+
+  const messages = [...conversation, { role: "user", content: finalQuestion }];
 
   const res = await fetch("https://api.anthropic.com/v1/messages", {
     method: "POST",
@@ -71,7 +100,7 @@ async function askAnalyzer(question) {
     .trim() || "(empty response)";
 
   // remember the exchange so follow-up questions have context
-  conversation.push({ role: "user", content: question });
+  conversation.push({ role: "user", content: finalQuestion });
   conversation.push({ role: "assistant", content: text });
   return text;
 }
@@ -166,6 +195,18 @@ function appendBubble(threadEl, role, text) {
       });
       div.appendChild(listenBtn);
     }
+    if (typeof notebookAdd === "function") {
+      const noteBtn = document.createElement("button");
+      noteBtn.className = "btn btn-ghost btn-small";
+      noteBtn.textContent = "📓 Save to notebook";
+      noteBtn.style.marginLeft = "0.4rem";
+      noteBtn.addEventListener("click", () => {
+        notebookAdd("AI answer — " + text.slice(0, 60).replace(/\n/g, " "), text);
+        noteBtn.textContent = "📓 Saved ✓";
+        setTimeout(() => { noteBtn.textContent = "📓 Save to notebook"; }, 1500);
+      });
+      div.appendChild(noteBtn);
+    }
   }
   threadEl.appendChild(div);
   threadEl.hidden = false;
@@ -184,6 +225,13 @@ document.addEventListener("DOMContentLoaded", () => {
   const questionEl = document.getElementById("ai-question");
 
   updateKeyStatus();
+
+  /* interpretive lens picker */
+  const lensSelect = document.getElementById("lens-select");
+  if (lensSelect) {
+    lensSelect.innerHTML = `<option value="">No lens — evidence only</option>` +
+      LENSES.map(l => `<option value="${l}">${l}</option>`).join("");
+  }
 
   /* key management */
   document.getElementById("save-key-btn").addEventListener("click", () => {
