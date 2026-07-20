@@ -39,9 +39,9 @@ function renderHebrewCourse() {
     const isDone = done.has(lesson.id);
     const tableHtml = lesson.table ? `
       <div class="table-scroll"><table class="hebrew-table">
-        <thead><tr><th>Letter</th><th>Final</th><th>Name</th><th>Sound</th><th>Number</th><th>Pictographic origin (reconstruction)</th></tr></thead>
+        <thead><tr><th>Letter</th><th>Final</th><th>Name</th><th>Sound</th><th>Number</th><th>Pictographic origin (reconstruction)</th><th>Hear</th></tr></thead>
         <tbody>${lesson.table.map(r =>
-          `<tr><td class="heb-glyph">${r[0]}</td><td class="heb-glyph">${r[1] || "—"}</td><td>${r[2]}</td><td>${r[3]}</td><td>${r[4]}</td><td>${r[5]}</td></tr>`
+          `<tr><td class="heb-glyph">${r[0]}</td><td class="heb-glyph">${r[1] || "—"}</td><td>${r[2]}</td><td>${r[3]}</td><td>${r[4]}</td><td>${r[5]}</td><td><button class="icon-btn letter-speak" data-heb="${r[0]}" data-name="${r[2]}" title="Hear this letter's name">🔊</button></td></tr>`
         ).join("")}</tbody>
       </table></div>` : "";
 
@@ -85,6 +85,14 @@ function renderHebrewCourse() {
       const spoken = lesson.title + ". Goal: " + lesson.goal + ". " + speechSafe(lesson.content);
       tts.speak(spoken, btn);
       btn.textContent = "⏹ Stop";
+    });
+  });
+
+  /* letter pronunciation (uses speakHebrew from dictionary.js:
+     real Hebrew voice if the device has one, English letter-name otherwise) */
+  wrap.querySelectorAll(".letter-speak").forEach(btn => {
+    btn.addEventListener("click", () => {
+      if (typeof speakHebrew === "function") speakHebrew(btn.dataset.heb, btn.dataset.name);
     });
   });
 
