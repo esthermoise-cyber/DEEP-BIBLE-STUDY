@@ -174,13 +174,15 @@
       <div class="card-list" id="list-claims"></div>
 
       <div class="ai-panel">
-        <h3>Ask the Analyzer (AI)</h3>
+        <h3>Ask the Analyzer (AI conversation)</h3>
         <p class="ai-note">
           Optional: connect your own Anthropic API key (get one at
           <a href="https://platform.claude.com" target="_blank" rel="noopener">platform.claude.com</a>).
           The key is stored <strong>only in your own browser</strong> (localStorage) and sent only to Anthropic.
-          The AI is instructed to grade its own answers with the same evidence tiers used across this site,
-          to say "unknown" when the evidence runs out, and never to present tradition or speculation as fact.
+          You will be talking to Claude, an AI held to this site's rules: grade every claim with the evidence
+          tiers, name real sources, say "unknown" when the evidence runs out, and never present tradition or
+          speculation as fact. It remembers the conversation, so you can ask follow-up questions —
+          and you can <strong>speak instead of typing</strong> (🎤) and <strong>listen instead of reading</strong> (🔊).
         </p>
         <div class="ai-key-row">
           <input type="password" id="api-key-input" placeholder="Anthropic API key (sk-ant-…)" autocomplete="off">
@@ -188,12 +190,17 @@
           <button id="clear-key-btn" class="btn btn-ghost">Clear</button>
           <span id="key-status" class="key-status"></span>
         </div>
-        <textarea id="ai-question" rows="3" placeholder="Ask a history / origins / language question, e.g. 'Where did the practice of praying to saints come from, and when is it first documented?'"></textarea>
+
+        <div id="ai-thread" class="ai-thread" hidden></div>
+
+        <textarea id="ai-question" rows="3" placeholder="Type here, or tap 🎤 Speak and ask out loud — e.g. 'Where did the practice of praying to saints come from, and when is it first documented?'"></textarea>
         <div class="ai-actions">
+          <button id="mic-btn" class="btn">🎤 Speak</button>
           <button id="ask-btn" class="btn btn-primary">Analyze</button>
+          <button id="new-conv-btn" class="btn btn-ghost">New conversation</button>
+          <label class="auto-read-label"><input type="checkbox" id="auto-read-toggle"> 🔊 Read answers aloud automatically</label>
           <span id="ai-status" class="ai-status"></span>
         </div>
-        <div id="ai-answer" class="ai-answer" hidden></div>
       </div>
     </section>
 
