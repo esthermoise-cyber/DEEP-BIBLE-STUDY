@@ -19,7 +19,8 @@ religion).
 | **World History & Politics** | Empires and the repeating political patterns: debased money, propaganda, bread and circuses, republic-to-strongman |
 | **Languages & True Definitions** | Hebrew, Aramaic, Greek, Kreyòl; the original meanings behind "hell", "church", "Lucifer", "virgin", and KJV words that drifted |
 | **Roots & Recovery** | Haitian heritage: the documented African kingdoms, the machinery of erasure, what survived, and how to recover your family line |
-| **Truth Analyzer** | A library of popular claims judged against evidence for/against, plus an optional AI assistant bound by truth-first rules |
+| **Academy** | Built-in Ancient Hebrew course (8 bite-size lessons ending at reading Genesis 1:1), plus an AI Course Builder tutor that assesses your goal and creates customized bite-size courses on any topic here — with voice in/out |
+| **Truth Analyzer** | A library of popular claims judged against evidence for/against, plus a conversational AI assistant bound by truth-first rules — speak to it (🎤) and hear it answer (🔊) |
 
 ## Running it
 

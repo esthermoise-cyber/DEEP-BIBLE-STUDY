@@ -299,6 +299,89 @@ main { max-width: 1100px; margin: 0 auto; padding: 2rem 1.5rem 4rem; }
   cursor: pointer;
 }
 
+/* ---------- Academy: Hebrew course ---------- */
+.hebrew-progress { display: flex; align-items: center; gap: 0.8rem; margin: 0.6rem 0 1.2rem; }
+.progress-track {
+  flex: 1;
+  max-width: 380px;
+  height: 10px;
+  background: var(--card);
+  border: 1px solid var(--card-edge);
+  border-radius: 999px;
+  overflow: hidden;
+}
+.progress-fill { height: 100%; background: var(--accent); transition: width 0.4s; }
+.progress-text { font-size: 0.84rem; color: var(--ink-dim); }
+
+.lesson-list { display: flex; flex-direction: column; gap: 0.7rem; }
+.lesson-card {
+  background: var(--card);
+  border: 1px solid var(--card-edge);
+  border-radius: 10px;
+}
+.lesson-card summary {
+  display: flex;
+  align-items: center;
+  gap: 0.7rem;
+  padding: 0.9rem 1.1rem;
+  cursor: pointer;
+  list-style: none;
+}
+.lesson-card summary::-webkit-details-marker { display: none; }
+.lesson-card[open] summary { border-bottom: 1px solid var(--card-edge); }
+.lesson-done { border-left: 4px solid #2e7d32; }
+.lesson-title { font-family: var(--serif); font-size: 1.02rem; flex: 1; }
+.lesson-mins { font-size: 0.78rem; color: var(--ink-dim); white-space: nowrap; }
+.lesson-body { padding: 1rem 1.2rem 1.3rem; }
+.lesson-goal { color: var(--ink-dim); font-size: 0.9rem; margin-bottom: 0.6rem; }
+.lesson-content p { margin: 0.7rem 0; font-size: 0.94rem; }
+.lesson-listen { margin-bottom: 0.3rem; }
+
+.table-scroll { overflow-x: auto; margin: 0.8rem 0; }
+.hebrew-table { border-collapse: collapse; width: 100%; font-size: 0.88rem; }
+.hebrew-table th, .hebrew-table td {
+  border: 1px solid var(--card-edge);
+  padding: 0.45rem 0.7rem;
+  text-align: left;
+}
+.hebrew-table th { background: var(--bg-soft); color: var(--accent); font-size: 0.78rem; text-transform: uppercase; letter-spacing: 0.05em; }
+.heb-glyph { font-size: 1.5rem; text-align: center !important; }
+
+.quiz { background: var(--bg-soft); border: 1px solid var(--card-edge); border-radius: 8px; padding: 0.9rem 1.1rem; margin-top: 1rem; }
+.quiz h5 { font-size: 0.78rem; text-transform: uppercase; letter-spacing: 0.06em; color: var(--accent); margin-bottom: 0.6rem; }
+.quiz-q { margin-bottom: 0.8rem; }
+.quiz-q p { font-weight: 600; font-size: 0.9rem; margin-bottom: 0.3rem; }
+.quiz-opt { display: block; font-size: 0.88rem; color: var(--ink-dim); padding: 0.15rem 0; cursor: pointer; }
+.quiz-opt:hover { color: var(--ink); }
+.quiz-result { margin-left: 0.8rem; font-size: 0.86rem; }
+.quiz-good { color: #7cb342; }
+.quiz-bad { color: #e57373; }
+
+/* ---------- Academy: course builder ---------- */
+.cb-form label { display: block; font-size: 0.86rem; color: var(--ink-dim); margin-bottom: 0.8rem; }
+.cb-form input[type="text"], .cb-form select {
+  display: block;
+  width: 100%;
+  margin-top: 0.3rem;
+  padding: 0.55rem 0.8rem;
+  background: var(--bg-soft);
+  border: 1px solid var(--card-edge);
+  border-radius: 6px;
+  color: var(--ink);
+  font-size: 0.92rem;
+}
+.cb-row { display: grid; grid-template-columns: repeat(auto-fit, minmax(160px, 1fr)); gap: 0.8rem; }
+.cb-plan {
+  background: var(--bg-soft);
+  border: 1px solid var(--card-edge);
+  border-left: 3px solid var(--accent);
+  border-radius: 8px;
+  padding: 1rem 1.2rem;
+  font-size: 0.92rem;
+  white-space: pre-wrap;
+}
+#tutor-input { width: 100%; padding: 0.7rem 0.9rem; background: var(--bg-soft); border: 1px solid var(--card-edge); border-radius: 6px; color: var(--ink); font-family: var(--sans); font-size: 0.95rem; resize: vertical; margin-top: 0.9rem; }
+
 /* ---------- footer ---------- */
 .site-footer {
   border-top: 1px solid var(--card-edge);

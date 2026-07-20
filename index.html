@@ -31,6 +31,7 @@
       <button class="nav-btn" data-view="world">World History &amp; Politics</button>
       <button class="nav-btn" data-view="language">Languages &amp; True Definitions</button>
       <button class="nav-btn" data-view="heritage">Roots &amp; Recovery</button>
+      <button class="nav-btn" data-view="academy">Academy</button>
       <button class="nav-btn" data-view="analyzer">Truth Analyzer</button>
     </nav>
   </header>
@@ -95,7 +96,8 @@
         <div class="method-card"><h4>World History &amp; Politics</h4><p>Empires, and the political patterns that repeat from Babylon and Rome to today: debased money, propaganda, bread and circuses.</p></div>
         <div class="method-card"><h4>Roots &amp; Recovery</h4><p>Haitian heritage: the documented African kingdoms the ancestors came from, what was erased and how, what survived, and how to recover your own family line.</p></div>
         <div class="method-card"><h4>Languages</h4><p>Hebrew, Aramaic, Greek — how the languages changed, and the true original definitions behind English words like hell, church, virgin, Lucifer.</p></div>
-        <div class="method-card"><h4>Truth Analyzer</h4><p>A library of popular claims examined against evidence, plus an optional AI assistant bound by strict truth-first rules.</p></div>
+        <div class="method-card"><h4>Truth Analyzer</h4><p>A library of popular claims examined against evidence, plus an optional AI assistant bound by strict truth-first rules — speak to it and hear it answer.</p></div>
+        <div class="method-card"><h4>Academy</h4><p>A built-in Ancient Hebrew course (read Genesis 1:1 in Hebrew by lesson 8), plus an AI tutor that assesses your goal and builds a customized bite-size course on any topic here.</p></div>
       </div>
     </section>
 
@@ -161,6 +163,88 @@
       </div>
       <div class="filter-bar" data-section="heritage"></div>
       <div class="card-list" id="list-heritage"></div>
+    </section>
+
+    <!-- ============ ACADEMY ============ -->
+    <section id="view-academy" class="view">
+      <div class="view-head">
+        <h2>Academy — Learn, Bite-Size</h2>
+        <p>Two ways to learn here. First, a built-in <strong>Ancient Hebrew course</strong> — short lessons with self-check quizzes and read-aloud, tracking your progress in this browser. Second, the <strong>Course Builder</strong>: an AI tutor agent that starts by assessing what <em>you</em> want to accomplish, then designs a customized bite-size course on any topic this site covers and teaches it to you lesson by lesson — by voice or by text.</p>
+      </div>
+
+      <h3 class="section-title">📜 Ancient Hebrew — the built-in course</h3>
+      <p class="ai-note">Eight lessons, ~10–15 minutes each: the two scripts, the full aleph-bet, the vowel points, first words, the Name, the root system — ending with you reading Genesis 1:1 in Hebrew. Tap a lesson to open it; pass its self-check to mark it complete. Each lesson has a 🔊 Listen button.</p>
+      <div id="hebrew-progress" class="hebrew-progress"></div>
+      <div id="hebrew-lessons" class="lesson-list"></div>
+
+      <div class="ai-panel">
+        <h3>🎓 Course Builder — your personal tutor agent</h3>
+        <p class="ai-note">
+          Uses the same API key you saved in the Truth Analyzer tab (stored only in your browser).
+          Step 1 is the <strong>assessment</strong>: tell the agent what you want to accomplish. It designs a
+          course sized to your minutes and style, then teaches one bite-size lesson per turn — with a short
+          quiz after each, honest grading, and the same evidence-tier truth rules as the rest of the site.
+          Use 🎤 to talk and 🔊 to listen instead of typing and reading.
+        </p>
+
+        <div class="cb-form">
+          <label>What do you want to accomplish?
+            <input type="text" id="cb-goal" placeholder="e.g. 'Read the Psalms in Hebrew', 'Understand where my Haitian family came from', 'Know the real origins of church holidays'">
+          </label>
+          <label>Topic for this course
+            <input type="text" id="cb-topic" placeholder="e.g. 'Biblical Hebrew — next steps', 'The Babylonian exile', 'Haitian Revolution', 'Aramaic basics'">
+          </label>
+          <div class="cb-row">
+            <label>Your current level
+              <select id="cb-level">
+                <option value="complete beginner">Complete beginner</option>
+                <option value="know a little">Know a little</option>
+                <option value="intermediate">Intermediate</option>
+                <option value="advanced">Advanced</option>
+              </select>
+            </label>
+            <label>Minutes per session
+              <select id="cb-minutes">
+                <option value="5">5</option>
+                <option value="10" selected>10</option>
+                <option value="20">20</option>
+                <option value="30">30</option>
+              </select>
+            </label>
+            <label>Learning style
+              <select id="cb-style">
+                <option value="mixed" selected>Mixed</option>
+                <option value="stories and examples">Stories &amp; examples</option>
+                <option value="drills and practice">Drills &amp; practice</option>
+                <option value="reading original texts">Reading original texts</option>
+                <option value="listening (spoken lessons)">Listening (spoken lessons)</option>
+              </select>
+            </label>
+          </div>
+          <div class="ai-actions">
+            <button id="cb-create-btn" class="btn btn-primary">Assess me &amp; create my course</button>
+            <span id="cb-status" class="ai-status"></span>
+          </div>
+        </div>
+
+        <div id="cb-plan-wrap" hidden>
+          <h4 class="section-title" style="margin-top:1.4rem">Your course plan</h4>
+          <div id="cb-plan" class="cb-plan"></div>
+        </div>
+
+        <div id="tutor-wrap" hidden>
+          <h4 class="section-title" style="margin-top:1.4rem">Your tutor</h4>
+          <div id="tutor-thread" class="ai-thread" hidden></div>
+          <textarea id="tutor-input" rows="2" placeholder="Type here, or tap 🎤 Speak — answer the quiz, ask questions, or say 'teach me the next lesson'"></textarea>
+          <div class="ai-actions">
+            <button id="tutor-mic" class="btn">🎤 Speak</button>
+            <button id="tutor-send" class="btn btn-primary">Send</button>
+            <button id="tutor-next-lesson" class="btn btn-ghost">▶ Teach next lesson</button>
+            <label class="auto-read-label"><input type="checkbox" id="tutor-autoread"> 🔊 Read lessons aloud automatically</label>
+            <span id="tutor-status" class="ai-status"></span>
+          </div>
+        </div>
+      </div>
     </section>
 
     <!-- ============ ANALYZER ============ -->
@@ -232,7 +316,9 @@
   <script src="data/world.js"></script>
   <script src="data/language.js"></script>
   <script src="data/claims.js"></script>
+  <script src="data/hebrew.js"></script>
   <script src="js/app.js"></script>
   <script src="js/analyzer.js"></script>
+  <script src="js/academy.js"></script>
 </body>
 </html>
