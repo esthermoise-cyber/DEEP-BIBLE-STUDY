@@ -27,12 +27,15 @@
       <button class="nav-btn" data-view="biblical">Biblical History</button>
       <button class="nav-btn" data-view="origins">Origins of Religions</button>
       <button class="nav-btn" data-view="practices">Origins of Practices</button>
+      <button class="nav-btn" data-view="sayings">Sayings &amp; Expressions</button>
       <button class="nav-btn" data-view="migrations">Migrations &amp; Diaspora</button>
       <button class="nav-btn" data-view="world">World History &amp; Politics</button>
       <button class="nav-btn" data-view="language">Languages &amp; True Definitions</button>
       <button class="nav-btn" data-view="heritage">Roots &amp; Recovery</button>
       <button class="nav-btn" data-view="academy">Academy</button>
       <button class="nav-btn" data-view="analyzer">Truth Analyzer</button>
+      <button class="nav-btn" data-view="saved">⭐ Saved</button>
+      <button class="nav-btn" data-view="support">❤ Support</button>
     </nav>
   </header>
 
@@ -55,6 +58,8 @@
           Truth is not a team sport.
         </p>
       </div>
+
+      <div id="daily-slot"></div>
 
       <h3 class="section-title">How every claim is graded</h3>
       <div class="tier-legend" id="tier-legend"></div>
@@ -92,6 +97,7 @@
         <div class="method-card"><h4>Biblical History</h4><p>A timeline of ancient Israel with what archaeology confirms, what it disputes, and what remains unknown.</p></div>
         <div class="method-card"><h4>Origins of Religions</h4><p>Where today's religions and denominations actually came from, with dates and documents.</p></div>
         <div class="method-card"><h4>Origins of Practices</h4><p>Christmas, Easter, Sunday, Halloween, birthdays, wedding rings — where each really came from, myths corrected in both directions.</p></div>
+        <div class="method-card"><h4>Sayings &amp; Expressions</h4><p>"OK", "scapegoat", "rule of thumb", "honeymoon" — when each phrase entered society, and which famous origin stories are fake.</p></div>
         <div class="method-card"><h4>Migrations &amp; Diaspora</h4><p>Where the Israelites started and where they ended up — every documented deportation and diaspora, and every descent claim graded by evidence.</p></div>
         <div class="method-card"><h4>World History &amp; Politics</h4><p>Empires, and the political patterns that repeat from Babylon and Rome to today: debased money, propaganda, bread and circuses.</p></div>
         <div class="method-card"><h4>Roots &amp; Recovery</h4><p>Haitian heritage: the documented African kingdoms the ancestors came from, what was erased and how, what survived, and how to recover your own family line.</p></div>
@@ -136,6 +142,15 @@
       </div>
       <div class="filter-bar" data-section="migrations"></div>
       <div class="card-list" id="list-migrations"></div>
+    </section>
+
+    <section id="view-sayings" class="view">
+      <div class="view-head">
+        <h2>Sayings &amp; Expressions — Where the Words You Use Came From</h2>
+        <p>Everyday phrases, traced to their documented first appearance and the moment they entered common life — including the many whose famous "origin stories" are themselves myths. If you say "OK", "scapegoat", "deadline", or "rule of thumb", you're speaking history; this page shows you which history, with the citations.</p>
+      </div>
+      <div class="filter-bar" data-section="sayings"></div>
+      <div class="card-list" id="list-sayings"></div>
     </section>
 
     <section id="view-world" class="view">
@@ -288,6 +303,29 @@
       </div>
     </section>
 
+    <!-- ============ SAVED ============ -->
+    <section id="view-saved" class="view">
+      <div class="view-head">
+        <h2>⭐ Your Saved Entries</h2>
+        <p>Entries you've starred, from every section — your personal study collection, kept in this browser. Tap the ⭐ on any entry to remove it, or ⤴ to share it.</p>
+      </div>
+      <div class="card-list" id="list-saved"></div>
+    </section>
+
+    <!-- ============ SUPPORT ============ -->
+    <section id="view-support" class="view">
+      <div class="view-head">
+        <h2>❤ Support This Work</h2>
+        <p>Deep Bible Study is free, has no ads, and never will sell your data — the truth shouldn't have a paywall in front of it. If it has value to you, here's how to keep it growing (and to fund the Witness Project, so elders' testimony gets recorded before it's lost).</p>
+      </div>
+      <p id="support-message" class="ai-note" hidden></p>
+      <div id="support-links" class="support-grid"></div>
+      <div class="method-grid" style="margin-top:2rem">
+        <div class="method-card"><h4>Where support goes</h4><p>Research time for new sections, Kreyòl translation of the whole app, and building the Witness Project — the elder-testimony recording app described in this repository.</p></div>
+        <div class="method-card"><h4>Free ways to help</h4><p>Share entries (the ⤴ button on any card), tell someone who'd use the Hebrew course, and send corrections — an entry that overstates its evidence is a bug.</p></div>
+      </div>
+    </section>
+
     <!-- ============ SEARCH RESULTS ============ -->
     <section id="view-search" class="view">
       <div class="view-head">
@@ -311,6 +349,8 @@
   <script src="data/biblical.js"></script>
   <script src="data/origins.js"></script>
   <script src="data/practices.js"></script>
+  <script src="data/sayings.js"></script>
+  <script src="data/support-config.js"></script>
   <script src="data/migrations.js"></script>
   <script src="data/heritage.js"></script>
   <script src="data/world.js"></script>

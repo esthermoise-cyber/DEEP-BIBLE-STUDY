@@ -15,6 +15,7 @@ religion).
 | **Biblical History** | Timeline of ancient Israel: what archaeology confirms, disputes, and can't settle |
 | **Origins of Religions** | Where today's religions and denominations actually came from, with dates and documents |
 | **Origins of Practices** | Christmas, Easter, Sunday, Halloween, birthdays, rings… real documented origins |
+| **Sayings & Expressions** | Where everyday phrases came from and when they entered society — "OK", "scapegoat", "deadline" — including famous fake origin stories, debunked |
 | **Migrations & Diaspora** | Where the Israelites started, every documented deportation/diaspora, and every descent claim graded by evidence |
 | **World History & Politics** | Empires and the repeating political patterns: debased money, propaganda, bread and circuses, republic-to-strongman |
 | **Languages & True Definitions** | Hebrew, Aramaic, Greek, Kreyòl; the original meanings behind "hell", "church", "Lucifer", "virgin", and KJV words that drifted |
@@ -37,6 +38,21 @@ The key is stored only in your browser's localStorage and sent only to
 Anthropic. The AI runs under a system prompt that forces it to grade its
 claims with the site's evidence tiers, name real sources, admit "unknown",
 and never take a side beyond the evidence.
+
+## Everyday features
+
+- **📅 Today's truth** — a featured entry rotates daily on the home page
+- **⭐ Saved** — star any entry to build a personal study collection (kept in your browser)
+- **⤴ Share** — one tap copies a clean, sourced summary of any entry (or opens your phone's share sheet)
+
+## Monetization (owner setup)
+
+The **❤ Support** tab shows donation/membership/product buttons for whatever
+links you add in `data/support-config.js` — Ko-fi, Buy Me a Coffee, PayPal,
+Cash App, Patreon, Gumroad, Payhip. Sign up for the ones you want (all free to
+join), paste your links into that one file, push, and the buttons appear.
+Everything works on this free static site; no server needed. (True paywalls or
+subscriptions would require moving to a hosted backend — a later phase, if ever.)
 
 ## Companion project
 
