@@ -23,6 +23,8 @@ religion).
 | **Doctrine Investigator** | Sabbath, hell, the soul, Trinity, tithing, baptism, resurrection, dietary laws, church hierarchy — each by one structure: claim → earliest evidence → development → established / debated / unprovable |
 | **Lost & Excluded Books** | 1 Enoch, Jubilees, Maccabees, Sirach, Wisdom, Tobit, Judith, the Didache, Hermas, Barnabas, Gospel of Thomas, 2 Esdras — dates, languages, manuscripts, canonical status per tradition, and honest reasons for exclusion |
 | **Manuscripts & Translations** | Masoretic, Dead Sea Scrolls, Septuagint, Samaritan Pentateuch, NT papyri & codices, Vulgate, Peshitta, Ethiopian Ge'ez — plus the documented causes of textual variants |
+| **Contradictions & Context** | The argued-over passages, OT to NT — every context shown (linguistic, cultural, historical, genre), every proposed resolution graded honestly, one consistent set of reading rules, conclusion left to the reader |
+| **Hebrew Dictionary** | 50 foundation words with Hebrew, transliteration, pronunciation guide, honest semantic range, and audio (real Hebrew voice when the device has one) |
 | **Academy** | Built-in Ancient Hebrew course (8 bite-size lessons ending at reading Genesis 1:1), plus an AI Course Builder tutor that assesses your goal and creates customized bite-size courses on any topic here — with voice in/out |
 | **📓 Research Notebook** | Personal notes, open questions, saved AI answers — editable in place, exportable as Markdown |
 | **Truth Analyzer** | A library of popular claims judged against evidence for/against, plus a conversational AI assistant bound by truth-first rules — speak to it (🎤) and hear it answer (🔊) |

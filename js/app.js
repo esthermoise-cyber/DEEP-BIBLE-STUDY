@@ -13,6 +13,7 @@ const SECTIONS = {
   doctrines:  { data: () => DATA_DOCTRINES,  list: "list-doctrines",  label: "Doctrine Investigator" },
   books:      { data: () => DATA_BOOKS,      list: "list-books",      label: "Lost & Excluded Books" },
   manuscripts:{ data: () => DATA_MANUSCRIPTS,list: "list-manuscripts",label: "Manuscripts & Translations" },
+  contradictions: { data: () => DATA_CONTRADICTIONS, list: "list-contradictions", label: "Contradictions & Context" },
   claims:     { data: () => DATA_CLAIMS,     list: "list-claims",     label: "Truth Analyzer" }
 };
 

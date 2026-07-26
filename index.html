@@ -35,6 +35,7 @@
       <button class="nav-btn" data-view="doctrines">Doctrine Investigator</button>
       <button class="nav-btn" data-view="books">Lost &amp; Excluded Books</button>
       <button class="nav-btn" data-view="manuscripts">Manuscripts</button>
+      <button class="nav-btn" data-view="contradictions">Contradictions &amp; Context</button>
       <button class="nav-btn" data-view="academy">Academy</button>
       <button class="nav-btn" data-view="dictionary">Hebrew Dictionary</button>
       <button class="nav-btn" data-view="analyzer">Truth Analyzer</button>
@@ -111,6 +112,7 @@
         <div class="method-card"><h4>Doctrine Investigator</h4><p>Sabbath, hell, the soul, Trinity, tithing, baptism — each traced from earliest evidence through its development, with established / debated / unprovable kept separate.</p></div>
         <div class="method-card"><h4>Lost &amp; Excluded Books</h4><p>1 Enoch, Jubilees, Maccabees, the Didache, Gospel of Thomas — what each is, who accepted it, and why it's in some Bibles and not others.</p></div>
         <div class="method-card"><h4>Manuscripts &amp; Translations</h4><p>Masoretic, Dead Sea Scrolls, Septuagint, Samaritan, the great codices — the physical witnesses behind every Bible, and why they differ.</p></div>
+        <div class="method-card"><h4>Contradictions &amp; Context</h4><p>The argued-over passages, OT to NT, with every context shown — linguistic, cultural, historical — and every resolution graded honestly, so the conclusion is yours.</p></div>
         <div class="method-card"><h4>Academy</h4><p>A built-in Ancient Hebrew course (read Genesis 1:1 in Hebrew by lesson 8), plus an AI tutor that assesses your goal and builds a customized bite-size course on any topic here.</p></div>
         <div class="method-card"><h4>Research Notebook</h4><p>Write notes, track open questions, save AI answers, and export your whole notebook as a file.</p></div>
       </div>
@@ -214,6 +216,15 @@
       </div>
       <div class="filter-bar" data-section="manuscripts"></div>
       <div class="card-list" id="list-manuscripts"></div>
+    </section>
+
+    <section id="view-contradictions" class="view">
+      <div class="view-head">
+        <h2>Contradictions &amp; Context</h2>
+        <p>The passages people argue over, Old Testament to New — each shown with ALL its contexts: linguistic (what the Hebrew or Greek actually allows), cultural (what the first audience assumed), historical (what the outside records say), and literary (what genre the passage is). Every proposed resolution is graded honestly: some tensions dissolve under context, some have plausible-but-unproven answers, and some remain genuinely hard — we tell you which is which, both directions, with one set of reading rules applied consistently whether the result is comfortable or not. Then the conclusion is <em>yours</em>. Start with the first entry — the "it's just a metaphor" problem — before reading the rest.</p>
+      </div>
+      <div class="filter-bar" data-section="contradictions"></div>
+      <div class="card-list" id="list-contradictions"></div>
     </section>
 
     <!-- ============ ACADEMY ============ -->
@@ -426,6 +437,7 @@
   <script src="data/doctrines.js"></script>
   <script src="data/books.js"></script>
   <script src="data/manuscripts.js"></script>
+  <script src="data/contradictions.js"></script>
   <script src="js/app.js"></script>
   <script src="js/dictionary.js"></script>
   <script src="js/notebook.js"></script>

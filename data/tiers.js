@@ -48,5 +48,6 @@ const VERDICTS = {
   FALSE:    { label: "FALSE",    color: "#c62828" },
   MOSTLY_FALSE: { label: "MOSTLY FALSE", color: "#d84315" },
   DEBATED:  { label: "GENUINELY DEBATED", color: "#ef6c00" },
-  UNPROVEN: { label: "UNPROVEN / UNKNOWN", color: "#6d4c41" }
+  UNPROVEN: { label: "UNPROVEN / UNKNOWN", color: "#6d4c41" },
+  NUANCED_SEE_BODY: { label: "NUANCED — READ THE EVIDENCE", color: "#0277bd" }
 };
