@@ -124,3 +124,24 @@ Everything you save stays on your own device. There are no advertisements, and n
 And if you ever find an entry that claims more certainty than its evidence allows — that is a bug, and this app wants to know about it.
 
 Because the whole point is this. The truth, the whole truth, and nothing but the truth — and enough evidence placed in front of you that you can decide for yourself.
+
+---
+
+## ✅ GENERATED — all 11 tracks are live in the app
+
+Voice: **Harper** · Engine: Higgsfield `seed_audio` · Total ~13 minutes.
+They play from the 🎧 player at the top of the **📖 How to Use** tab.
+
+### Making them permanent (recommended)
+
+The tracks currently stream from Higgsfield's CDN. If those links ever expire,
+the player breaks. To store them in the repo instead:
+
+1. Open your Higgsfield account → **Generations** → filter to Audio
+2. Download all 11 `.wav` files
+3. Put them in `assets/audio/` named `01-welcome.wav` … `11-first-session.wav`
+4. In `data/audio-tracks.js`, set `AUDIO_BASE = "assets/audio/"` and change each
+   `f:` value to the matching local filename
+
+(WAV files are large — converting them to MP3 first, with any free converter,
+keeps the repository small.)
