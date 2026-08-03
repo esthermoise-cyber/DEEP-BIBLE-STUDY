@@ -7,6 +7,16 @@ tradition is never dressed up as proof, and popular myths get corrected in
 *both* directions (false church traditions AND false internet claims against
 religion).
 
+## New here? Open the **📖 How to Use** tab
+
+The app's first tab is a 10-step guided walkthrough with real screenshots of
+every screen — badges, search, the AI setup, the Hebrew course, notes. Takes
+about six minutes to read through once.
+
+To record a narrated video tour, `WALKTHROUGH-SCRIPT.md` has a ready-to-read
+script with timings, plus phone/computer screen-recording instructions and
+six short-clip ideas for social posts.
+
 ## Sections
 
 | Section | What it covers |
