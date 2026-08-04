@@ -58,13 +58,25 @@ async function askAnalyzer(question) {
   const apiKey = getKey();
   if (!apiKey) throw new Error("No API key saved. Paste your Anthropic API key above and click Save.");
 
+  /* ground the AI in the app's own research on this topic */
+  let grounding = "";
+  if (typeof searchEntriesRanked === "function") {
+    const matches = searchEntriesRanked(question, 3);
+    if (matches.length) {
+      grounding = "THE APP'S OWN RESEARCHED ENTRIES ON THIS TOPIC (ground your answer in these first; where you go beyond them, say so):\n\n" +
+        matches.map((m, i) => `[APP ENTRY ${i + 1} — ${m.section} — graded ${m.entry.tier || m.entry.verdict}] ${m.entry.title}\n${m.entry.body}\n${(m.entry.deep || "").slice(0, 1000)}`).join("\n\n") +
+        "\n\nQUESTION: ";
+    }
+  }
+
   const lensEl = document.getElementById("lens-select");
   const lens = lensEl ? lensEl.value : "";
+  const groundedQuestion = grounding + question;
   const finalQuestion = lens
     ? (lens.startsWith("Compare")
-        ? `${question}\n\n[Analyze this by comparing the three most relevant interpretive lenses side by side — for each, state its assumptions first, then its reading, then what the evidence itself shows.]`
-        : `${question}\n\n[Answer through the "${lens}" interpretive lens — state that lens's assumptions first, then answer within it, clearly separating what the lens assumes from what the evidence shows.]`)
-    : question;
+        ? `${groundedQuestion}\n\n[Analyze this by comparing the three most relevant interpretive lenses side by side — for each, state its assumptions first, then its reading, then what the evidence itself shows.]`
+        : `${groundedQuestion}\n\n[Answer through the "${lens}" interpretive lens — state that lens's assumptions first, then answer within it, clearly separating what the lens assumes from what the evidence shows.]`)
+    : groundedQuestion;
 
   const messages = [...conversation, { role: "user", content: finalQuestion }];
 

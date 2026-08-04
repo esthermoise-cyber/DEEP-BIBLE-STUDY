@@ -55,6 +55,15 @@ function escapeHtml(s) {
   return String(s).replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;").replace(/"/g, "&quot;");
 }
 
+function renderOneSource(s, hl) {
+  if (typeof s === "string") return hl(s);
+  const cite = s.url
+    ? `<a class="src-link" href="${escapeHtml(s.url)}" target="_blank" rel="noopener">${hl(s.cite)} ↗</a>`
+    : hl(s.cite);
+  const where = s.where ? ` <span class="src-where">— ${hl(s.where)}</span>` : "";
+  return cite + where;
+}
+
 function entryCard(entry, highlight) {
   const isClaim = !!entry.verdict;
   const badge = isClaim ? verdictBadge(entry.verdict) : tierBadge(entry.tier);
@@ -77,8 +86,14 @@ function entryCard(entry, highlight) {
       </div>`;
   }
 
+  const deepHtml = entry.deep ? `
+      <button class="deep-toggle">📖 Read the full study</button>
+      <div class="deep-body" hidden>
+        ${entry.deep.split("\n\n").map(p => `<p>${hl(p)}</p>`).join("")}
+      </div>` : "";
+
   const sources = entry.sources && entry.sources.length
-    ? `<div class="sources"><span>Sources:</span> ${entry.sources.map(escapeHtml).join(" · ")}</div>`
+    ? `<div class="sources"><span>Sources:</span> ${entry.sources.map(s => renderOneSource(s, hl)).join(" · ")}</div>`
     : "";
 
   return `
@@ -87,6 +102,7 @@ function entryCard(entry, highlight) {
         <h3>${hl(entry.title)}</h3>
         <span class="entry-meta">
           ${entry.date ? `<span class="entry-date">${escapeHtml(entry.date)}</span>` : ""}
+          <button class="icon-btn listen-btn" title="Listen to this entry">🔊</button>
           <button class="icon-btn save-btn ${saved ? "saved" : ""}" title="${saved ? "Remove from saved" : "Save this entry"}">${saved ? "⭐" : "☆"}</button>
           <button class="icon-btn share-btn" title="Copy this entry to share">⤴</button>
         </span>
@@ -94,8 +110,35 @@ function entryCard(entry, highlight) {
       ${badge}
       ${evidenceHtml}
       <p class="body">${hl(entry.body)}</p>
+      ${deepHtml}
       ${sources}
     </article>`;
+}
+
+/* ---------- ranked retrieval across all sections (used by Ask + AI grounding) ---------- */
+
+function searchEntriesRanked(query, limit) {
+  const words = query.toLowerCase().split(/[^a-zà-ÿ'?-]+/i).filter(w => w.length > 2);
+  if (!words.length) return [];
+  const scored = [];
+  Object.keys(SECTIONS).forEach(key => {
+    SECTIONS[key].data().forEach(entry => {
+      const title = (entry.title || "").toLowerCase();
+      const tags = (entry.tags || []).join(" ").toLowerCase();
+      const body = ((entry.body || "") + " " + (entry.forEvidence || "") + " " + (entry.againstEvidence || "")).toLowerCase();
+      const deep = (entry.deep || "").toLowerCase();
+      let score = 0;
+      words.forEach(w => {
+        if (title.includes(w)) score += 4;
+        if (tags.includes(w)) score += 3;
+        if (body.includes(w)) score += 2;
+        if (deep.includes(w)) score += 1;
+      });
+      if (score > 0) scored.push({ entry, section: SECTIONS[key].label, score });
+    });
+  });
+  scored.sort((a, b) => b.score - a.score);
+  return scored.slice(0, limit || 5);
 }
 
 function findEntryByTitle(title) {
@@ -106,14 +149,37 @@ function findEntryByTitle(title) {
   return null;
 }
 
-/* one delegated handler for save/share on every list */
+/* one delegated handler for save/share/listen/deep-toggle on every list */
 document.addEventListener("click", async (ev) => {
+  const deepBtn = ev.target.closest(".deep-toggle");
+  if (deepBtn) {
+    const body = deepBtn.nextElementSibling;
+    body.hidden = !body.hidden;
+    deepBtn.textContent = body.hidden ? "📖 Read the full study" : "📖 Close the full study";
+    return;
+  }
+
   const saveBtn = ev.target.closest(".save-btn");
   const shareBtn = ev.target.closest(".share-btn");
-  if (!saveBtn && !shareBtn) return;
+  const listenBtn = ev.target.closest(".listen-btn");
+  if (!saveBtn && !shareBtn && !listenBtn) return;
   const card = ev.target.closest(".entry-card");
   if (!card) return;
   const title = card.dataset.title;
+
+  if (listenBtn) {
+    if (typeof tts === "undefined" || !tts.supported) return;
+    if (tts.speakingBtn === listenBtn) { tts.stop(); return; }
+    const found = findEntryByTitle(title);
+    if (!found) return;
+    const e = found.entry;
+    const spoken = [e.title, e.body, e.forEvidence ? "Evidence for the claim: " + e.forEvidence : "",
+      e.againstEvidence ? "Evidence against: " + e.againstEvidence : "", e.deep || ""]
+      .filter(Boolean).join(". ").replace(/[֐-׿]+/g, " (Hebrew) ");
+    tts.speak(spoken, listenBtn);
+    listenBtn.textContent = "⏹";
+    return;
+  }
 
   if (saveBtn) {
     const nowSaved = toggleSaved(title);
