@@ -7,6 +7,23 @@ tradition is never dressed up as proof, and popular myths get corrected in
 *both* directions (false church traditions AND false internet claims against
 religion).
 
+**Every entry now goes deep.** Each of the 144 research entries carries a
+summary *and* a full study — tap **📖 Read the full study** for a multi-
+paragraph, evidence-first treatment of the primary sources, the archaeology,
+the scholarly debate, and what remains uncertain. Every entry cites its
+sources: **329 are clickable links** to stable open resources (Bible Gateway,
+Wikipedia, CCEL, Early Christian Writings, Sefaria, Perseus, the digitized
+Codex Sinaiticus and Dead Sea Scrolls, SlaveVoyages, the Avalon Project), and
+where a source isn't reliably online — a specific manuscript, museum artifact,
+or academic book — the entry tells you exactly **where to find it**: which
+museum or library, which collection, which edition.
+
+**Don't want to read or type? Ask out loud.** The floating **🎙 Ask** button
+(every page) takes spoken questions and reads the answer back. It answers from
+the app's own research instantly, and with an API key it becomes a full AI
+conversation grounded in that research. Every entry card also has its own
+**🔊 listen** button.
+
 ## New here? Open the **📖 How to Use** tab
 
 The app's first tab is a 10-step guided walkthrough with real screenshots of
